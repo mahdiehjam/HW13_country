@@ -1,0 +1,167 @@
+div{
+  display: flex;
+}
+
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.App img{
+  width: 300px;
+  height:300px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.input {
+  outline: none;
+  line-height: 40px;
+  height: 40px;
+  border-radius: 20px 0 0 20px;
+  background: white;
+  color: black;
+  flex:1;
+  padding: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.input+button{
+  background: white;
+  color: rgb(51, 52, 53);
+  border-radius: 0 20px 20px 0;
+  outline: none;
+  padding: 0 20px;
+  transition: 600ms all ease-in-out;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+}
+
+
+
+.suggest{
+  width: 100%;
+  position: absolute;
+  padding: 20px;
+  list-style: none;
+
+}
+
+
+.input+button+.suggest{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+  border-radius: 0 0 20px 20px;
+}
+
+.suggest li{
+  display: flex;
+  justify-content: space-between;
+}
+
+.suggest li:hover{
+  background: rgb(228, 224, 224);
+}
+
+.suggest img{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.flags{
+  width:30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px 1px #d3d3d3;   
+  max-width: 100%;
+}
+
+nav{
+  height: 56px;
+  display: flex;
+  box-shadow: 0 3px 6px gray;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: 5px 20px;
+}
+
+nav img{
+  width: 30px;
+  height: 30px;
+}
+
+nav button{
+  background: transparent;
+  border: none;
+}
+
+.flag{
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 2px 1px #d3d3d3;
+}
+
+.flag img{
+  width: 100%;
+  height: 100%;
+}
+
+.row{
+  padding: 16px;
+  margin: 16px;
+}
+
+.callCode{
+  flex-direction: column; 
+  max-width: 100%;
+  box-shadow: 0px 2px 2px 1px #d3d3d3;
+}
+
+.codeTitle{
+  height: 20%;
+  background: black;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center; 
+}
+
+.codeState{
+  height: 80%;
+  background: rgb(255, 208, 0);
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  font-weight: lighter;
+}
+
+.dataCountry{
+  flex-direction: column; 
+  max-width: 100%;
+  box-shadow: 0px 2px 2px 1px #d3d3d3;
+}
+
+.datas{
+  flex-direction: column; 
+  background: gray;
+  height: 100%;
+}
+
+#root{
+  display: block;
+}
