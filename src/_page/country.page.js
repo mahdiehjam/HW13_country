@@ -3,6 +3,7 @@ import Axios from "axios";
 import world from '../world.svg';
 import back from '../back.svg';
 import Bootstrap from '../styles/bootstrap-grid.min.css';
+import { BrowserRouter as Router, Route,Redirect,Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 
@@ -10,11 +11,23 @@ class Country extends Component{
 
 
 
-   constructor(props){
+   constructor(props) {
       super(props);
-      Axios.get('https://restcountries.eu/rest/v2/alpha/'+ props.match.params.code).then(response=>
-      {this.setState({ ...response.data})})
-  }
+   }
+
+   getCountry = () => {
+   Axios.get('https://restcountries.eu/rest/v2/alpha/' + this.props.match.params.code).then(response => {
+      this.setState({ ...response.data })
+   })
+   }
+
+   componentDidMount() {
+   this.getCountry();
+   }
+
+   componentDidUpdate() {
+   this.getCountry();
+   }
 
 
    goBack = () => {
@@ -48,8 +61,17 @@ class Country extends Component{
             </div>
             <div className="col-12 col-lg-4 flag"><img src={state.flag}/></div>
          </main> : <span>loading ...</span>}
+         
          {state ? <main className="container-fluid">
-
+         <div className="col-12 col-lg-4">
+               
+         </div>
+         <div className="col-12 col-lg-4">
+            
+         </div>
+         <div className="col-12 col-lg-4">
+            <span>Neighbors:</span> {state.borders.map((item) => <li><Link to={`/country/${item}`}>{item}</Link></li>)}
+         </div>
          </main> : <span>loading ...</span>}
       </>;
    } 
