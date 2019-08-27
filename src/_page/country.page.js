@@ -68,10 +68,10 @@ class Country extends Component{
          <div className="col-12 col-lg-4 weather">
          <Weather city={this.state.capital} country={this.state.alpha2Code} />
          </div>
-         <div className="col-12 col-lg-4 map">
+         <div className="col-12 col-lg-4">
          < GoogleApiWrapper lat={state.latlng[0]} lng={state.latlng[1]} name={state.name} />
          </div>
-         <div className="col-12 col-lg-4 neighboor">
+         <div className="col-12 col-lg-4">
             <span>Neighbors:</span> {state.borders.map((item) => <li><Link to={`/country/${item}`}>{item}</Link></li>)}
          </div>
          </main> : <span>loading ...</span>}
