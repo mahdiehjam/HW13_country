@@ -12,7 +12,7 @@ class Input extends Component {
     changeHandler = (event) => {
         const {value,name} = event.target;
         this.setState({[name] : value,suggest: []});
-        if (value.length > 0){
+        if (value.length > 2){
             Axios.get('https://restcountries.eu/rest/v2/name/' + value).then(response=>{
                 this.setState({suggest: response.data})
             })

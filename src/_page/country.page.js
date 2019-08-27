@@ -3,6 +3,8 @@ import Axios from "axios";
 import world from '../world.svg';
 import back from '../back.svg';
 import Bootstrap from '../styles/bootstrap-grid.min.css';
+import GoogleApiWrapper from "./map";
+import {Weather} from "../_components";
 import { BrowserRouter as Router, Route,Redirect,Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
@@ -62,14 +64,14 @@ class Country extends Component{
             <div className="col-12 col-lg-4 flag"><img src={state.flag}/></div>
          </main> : <span>loading ...</span>}
          
-         {state ? <main className="container-fluid">
-         <div className="col-12 col-lg-4">
-               
+         {state ? <main className="container-fluid row">
+         <div className="col-12 col-lg-4 weather">
+         <Weather city={this.state.capital} country={this.state.alpha2Code} />
          </div>
-         <div className="col-12 col-lg-4">
-            
+         <div className="col-12 col-lg-4 map">
+         < GoogleApiWrapper lat={state.latlng[0]} lng={state.latlng[1]} name={state.name} />
          </div>
-         <div className="col-12 col-lg-4">
+         <div className="col-12 col-lg-4 neighboor">
             <span>Neighbors:</span> {state.borders.map((item) => <li><Link to={`/country/${item}`}>{item}</Link></li>)}
          </div>
          </main> : <span>loading ...</span>}
